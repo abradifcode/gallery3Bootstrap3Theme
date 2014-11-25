@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Album List
+   ========================================================================== */
+
+.item-list {
+  > div {
+    @extend .row;
+
+    > .item {
+      @extend .col-xs-6;
+      @extend .col-sm-4;
+      @extend .col-md-3;
+      margin-bottom: $grid-gutter-width;
+
+      // Inner content
+      > div {
+        position: relative;
+        border-radius: $border-radius-base;
+        border: 1px solid $gray;
+        padding: 5px;
+
+        &:hover {
+          @include box-shadow(0 0 4px $brand-primary);
+
+          > .item-information {
+            opacity: 1;
+            display: block;
+          }
+
+          > a {
+            opacity: 0.8;
+
+            > img {
+              filter: none;
+              -webkit-filter: none;
+              -moz-filter: none;
+            }
+          }
+        }
+
+        // Thumbnail
+        > a {
+          display: block;
+
+          > img {
+            @extend .img-responsive;
+            width: 100%;
+            filter: none;
+            -webkit-filter: none;
+            -moz-filter: none;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            -ms-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+          }
+
+          &:hover {
+            > img {
+              -webkit-filter: grayscale(100%);
+              -moz-filter: grayscale(100%);
+              filter: gray;
+              filter: grayscale(100%);
+            }
+          }
+        }
+
+        > .item-information {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-left: -25%;
+          background: transparentize($white, .1);
+          margin: -($line-height-computed) 0 0 0;
+          width: 100%;
+          padding: 10px 0;
+          opacity: 0;
+          text-align: center;
+          -webkit-transition: opacity .2s ease-in-out;
+          -moz-transition: opacity .2s ease-in-out;
+          -ms-transition: opacity .2s ease-in-out;
+          -o-transition: opacity .2s ease-in-out;
+          transition: opacity .2s ease-in-out;
+
+          // Item title
+          > h6 {
+
+          }
+
+          // The metadata
+          > .metadata {
+            @extend .list-unstyled;
+
+            > li {
+              font-size: 12px;
+              font-family: "Open Sans";
+              font-weight: 400;
+            }
+          }
+        }
+
+        // Actions/ Context menu
+        > .actions {
+          margin-top: 10px;
+
+          > div {
+            @extend .row;
+
+            > .context-menu {
+              @extend .col-sm-6;
+
+              ul {
+                @extend .list-unstyled;
+
+              }
+            }
+
+            // The download link
+            > .download {
+              @extend .col-sm-6;
+
+              > a {
+                @extend .pull-right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

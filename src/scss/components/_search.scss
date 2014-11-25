@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Search Form - appears in <main> (search.html.php), and header (page.html.php)
+   ========================================================================== */
+
+.search-form {
+  label {
+    @extend .sr-only;
+  }
+
+  input {
+    @extend .form-control;
+  }
+
+  button[type="submit"] {
+    @extend .btn;
+    @extend .btn-primary;
+
+    > i {
+      @extend .icon;
+      @extend .#{$fa-css-prefix}-search;
+      font-size: $font-size-base;
+      line-height: $line-height-base;
+    }
+
+    > span {
+      @extend .sr-only;
+    }
+  }
+}
+
+// "Searched the gallery/album" text
+.searched-in {
+  @extend .well;
+  margin: 15px 0;
+
+  > p {
+    margin: 0;
+    padding: 0;
+  }
+}

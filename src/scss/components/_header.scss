@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header[role="banner"] {
+
+  border-top: 5px solid $gray;
+
+  .navbar-header {
+    button {
+      >span {
+        @extend .sr-only;
+      }
+
+      >i {
+        @extend .icon;
+        @extend .#{$fa-css-prefix}-bars;
+      }
+    }
+  }
+
+  >nav {
+    @extend .navbar;
+    @extend .navbar-default;
+    margin: 0;
+  }
+
+  // Logo
+  #gLogo {
+    @extend .navbar-brand;
+
+    >img {
+      @extend .img-responsive;
+    }
+  }
+
+  // Site menu
+  #gSiteMenu {
+    @extend .navbar-left;
+
+    > ul {
+      @extend .nav;
+      @extend .navbar-nav;
+    }
+
+  }
+
+  // Search form
+  .search-form {
+    @extend .navbar-right;
+
+    >form {
+      @extend .navbar-form;
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  header {
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  header {
+
+  }
+}

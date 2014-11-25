@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Paths
+
+   This file is exclusively intended for setting up variables
+   Never add styles directly to this file
+   ========================================================================== */
+
+/* General
+   ========================================================================== */
+// frontend assets root
+$root: "/";
+
+// Bower vendor root
+$vendor: "/themes/bootstrap/vendor";
+
+// Bootstrap
+$iconfont-url: "#{$vendor}/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+// Theme
+$fonts-url: "#{$root}/fonts";
+
+// Font Awesome font path
+$fa-font-path: "#{$vendor}/components-font-awesome/fonts";

@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Item Information - shared across album.html.php and photo.html.php and movie.html.php
+   ========================================================================== */
+
+// Listing information/header
+.item-information {
+
+  // Right/left columns
+  >div {
+    @extend .col-sm-6;
+  }
+
+  // Title
+  h2 {
+    // The icons styles are defined in _icons.scss
+  }
+
+  // Download link (right col)
+  .download-link {
+
+  }
+
+  // Context menu (right col)
+  .g-context-menu {
+    display: inline-block;
+  }
+
+  // Item description
+  p {
+    font-style: italic;
+    color: $gray-dark;
+  }
+}
+
+@media (min-width: $screen-sm-min){
+  .item-information {
+    .download-link {
+      float: right;
+    }
+
+    .g-context-menu {
+      float: right;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 1px solid $gray;
+    }
+  }
+}

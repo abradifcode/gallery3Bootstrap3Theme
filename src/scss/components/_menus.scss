@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Menus
+   ========================================================================== */
+
+.g-context-menu {
+  @extend .list-unstyled;
+  margin: 0;
+
+  > li > a {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend .btn-default;
+
+    > i {
+      @extend .icon;
+      @extend .#{$fa-css-prefix}-bars;
+      margin: 0;
+    }
+
+    > span {
+      @extend .sr-only;
+    }
+
+  }
+}

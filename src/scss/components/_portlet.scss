@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Portlets (sidebars - block.html.php)
+   ========================================================================== */
+
+.portlet {
+  @include box-sizing(border-box);
+  background: $white;
+  border: 1px solid $gray-light;
+  border-radius: $border-radius-base;
+  margin-bottom: 15px;
+
+  // Title
+  > h4 {
+    background: desaturate($gray-lighter, 10%);
+    color: $black;
+    margin: 0;
+    padding: 5px 10px;
+  }
+
+  // The portlet/block content
+  > div {
+    padding: 10px;
+    font-size: 13px;
+
+    ol, ul {
+      @extend .list-unstyled;
+      > li {
+        padding: 3px;
+        margin: 0 0 2px 0;
+      }
+    }
+  }
+
+  // Specific block styles
+
+  // Metadata
+  &#g-metadata {
+
+  }
+
+  // RSS
+  &#g-rss {
+
+  }
+
+  // Tags
+  &#g-tag {
+    .tag-list {
+      @extend .list-unstyled;
+      @extend .list-inline;
+
+      > li {
+        @include clearfix();
+        margin-bottom: 4px;
+
+        > a {
+          @extend .tag;
+          @include box-sizing(border-box);
+          padding: 4px;
+          color: $brand-primary;
+          border: 1px solid $gray-light;
+          border-radius: $border-radius-base;
+
+          > i {
+            color: $black;
+          }
+
+          > span {
+            @extend .badge;
+            font-size: 70%;
+            font-weight: 400;
+            background: $gray;
+            margin-left: 5px;
+          }
+
+          &:hover {
+            background: $brand-primary;
+            color: $white;
+
+            >i {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+      legend {
+        @extend .sr-only;
+      }
+
+      label {
+        @extend .sr-only;
+      }
+
+      input[type="text"] {
+        @extend .form-control;
+      }
+
+      input[type="submit"] {
+        @extend .btn;
+        @extend .btn-primary;
+      }
+
+      span[role="status"] {
+        @extend .sr-only;
+      }
+    }
+  }
+}

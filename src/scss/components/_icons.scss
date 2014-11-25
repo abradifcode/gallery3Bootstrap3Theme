@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+// Generic icon styles
+.icon {
+  @extend .#{$fa-css-prefix};
+  margin-right: 4px;
+}
+
+// Type icons (Album, Photo, Movie)
+.album {
+  > i {
+    @extend .icon;
+    @extend .#{$fa-css-prefix}-folder-open-o;
+  }
+}
+
+.movie {
+  > i {
+    @extend .icon;
+    @extend .#{$fa-css-prefix}-file-video-o;
+  }
+}
+
+.photo {
+  > i {
+    @extend .icon;
+    @extend .#{$fa-css-prefix}-file-picture-o;
+  }
+}
+
+.tag {
+  > i {
+    @extend .icon;
+    @extend .#{$fa-css-prefix}-tags;
+  }
+}
+
+.home {
+  > i {
+    @extend .icon;
+    @extend .#{$fa-css-prefix}-home;
+  }
+}

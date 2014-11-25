@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+main {
+  @extend .container-fluid;
+  padding-top: 20px;
+
+  // Theme messages/Gallery Status messages
+  .messages,
+  .status {
+    @extend .alert;
+    @extend .alert-warning;
+
+    > ul,
+    > ol {
+      @extend .list-unstyled;
+    }
+  }
+
+  // Content area
+  #content {
+    @extend .col-sm-9;
+  }
+
+  // Right sidebar
+  #sidebar {
+    @extend .col-sm-3;
+  }
+
+  // Search form within the search page
+  .search-form {
+    margin: 15px 0;
+  }
+}

@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Breadcrumbs
+   ========================================================================== */
+
+.breadcrumbs {
+
+  background: $gray-lighter;
+  padding: 15px 0;
+
+  > nav {
+    > ol {
+      @extend .breadcrumb;
+      margin-bottom: 0;
+
+      // Icons are defined in _icons.scss, as they're reuseable
+    }
+  }
+}

@@ -29,4 +29,7 @@ $(document).ready(function () {
     // Pagination tooltips to show images on hover
     $('[data-toggle="tooltip"]').tooltip();
 
+    // Intialize empty
+    Holder.run({});
+
 });

@@ -9,7 +9,11 @@
                 <div>
                     <a href="<?= $item->url() ?>">
                         <?= $theme->thumb_top($item) ?>
-                        <?= $item->thumb_img() ?>
+                        <? if ($item->album_cover_item_id === null && $item->is_album()): ?>
+                            <img data-src="holder.js/200x150/auto/#ffffff:#5a5a5a/text:No Preview" />
+                        <? else: ?>
+                            <?= $item->thumb_img() ?>
+                        <? endif; ?>
                         <?= $theme->thumb_bottom($item) ?>
                     </a>
 

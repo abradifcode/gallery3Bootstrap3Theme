@@ -34,57 +34,38 @@
 
     <div class="pager">
         <ul>
-            <? if ($previous_item): ?>
-                <li<?= (!$previous_item) ? ' class="disabled"' : '' ?>>
-                    <a href="<?= $previous_item->url() ?>"
-                       data-toggle="tooltip"
-                       data-placement="top"
-                       data-html="true"
-                       data-trigger="hover"
-
-                       data-title="<img src='<?= $previous_item->thumb_url() ?>' /><?= $previous_item->name; ?>">
-                        <span aria-hidden="true">&lsaquo;</span>
-                    <span class="sr-only">
-                        <?= t("previous") ?>
-                    </span>
-                    </a>
-                </li>
-            <? endif ?>
-
-            <? if (count($siblings = $item->parent()->children()) > 0): ?>
-                <? foreach ($item->parent()->children() as $index => $sibling): ?>
+            <?
+                // Show a range of +/- 4 items from the current
+                $current_index = $item->get_position($item);
+                $siblings = $item->parent()->children();
+                $numSiblings = $item->parent()->children_count();
+                $start = ($current_index - 5) > 0 ? ($current_index - 5) : 0;
+                $end = ($numSiblings > 9) ? 9 : $numSiblings - 1;
+            ?>
+            <? if ($numSiblings > 0): ?>
+                <? $index = $start; ?>
+                <? while($index <= $end): ?>
+                    <? $sibling = $siblings[$index] ?>
                     <li<?= ($item->id == $sibling->id) ? ' class="disabled"' : '' ?>>
                         <a href="<?= $sibling->url() ?>"
                             <? if ($item->id != $sibling->id): ?>
                            data-toggle="tooltip"
                            data-placement="top"
-                           data-html="true"
-                           data-trigger="hover"
-                           data-title="<img src='<?= $sibling->thumb_url() ?>' /><?= $sibling->name; ?>">
+                           data-title="<?= $sibling->name; ?>"
                             <? endif; ?>
-                            <span aria-hidden="true"><?= $index + 1 ?></span>
-                    <span class="sr-only">
-                        <?= $sibling->name; ?>
-                    </span>
+                            >
+                            <span>
+                                <?= $index + 1 ?>
+                            </span>
+                            <span>
+                                <?= $sibling->name; ?>
+                            </span>
+                            <img src="<?= $sibling->thumb_url() ?>" />
+
                         </a>
                     </li>
-                <? endforeach; ?>
-            <? endif ?>
-
-            <? if ($next_item): ?>
-                <li<?= (!$next_item) ? ' class="disabled"' : '' ?>>
-                    <a href="<?= $next_item->url() ?>"
-                       data-toggle="tooltip"
-                       data-placement="top"
-                       data-html="true"
-                       data-trigger="hover"
-                       data-title="<img src='<?= $next_item->thumb_url() ?>' /><?= $next_item->name; ?>">
-                        <span aria-hidden="true">&rsaquo;</span>
-                    <span class="sr-only">
-                        <?= t("next") ?>
-                    </span>
-                    </a>
-                </li>
+                    <? $index++ ?>
+                <? endwhile ?>
             <? endif ?>
         </ul>
     </div>

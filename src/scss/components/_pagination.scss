@@ -7,6 +7,31 @@
 
   >ul {
     @extend .pagination;
+
+    >li {
+      >a {
+        width: 100px;
+        display: block;
+        >span {
+          @extend .sr-only;
+        }
+        >img {
+          @extend .img-responsive;
+        }
+      }
+
+      &.disabled {
+        >a {
+          >img {
+            opacity: 0.4;
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            filter: gray;
+            filter: grayscale(100%);
+          }
+        }
+      }
+    }
   }
 }
 

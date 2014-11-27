@@ -42,7 +42,6 @@
     </script>
     <?= $theme->script("gallery.ajax.js") ?>
     <?= $theme->script("gallery.dialog.js") ?>
-    <?= $theme->script("gallery.form.js") ?>
 
     <? /* These are page specific, but if we put them before $theme->head() they get combined */ ?>
     <? if ($theme->page_type == "photo"): ?>

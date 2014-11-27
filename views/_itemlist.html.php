@@ -10,25 +10,22 @@
                     <a href="<?= $item->url() ?>">
                         <?= $theme->thumb_top($item) ?>
                         <? if ($item->album_cover_item_id === null && $item->is_album()): ?>
-                            <img data-src="holder.js/200x150/auto/#ffffff:#5a5a5a/text:No Preview" />
+                            <img data-src="holder.js/200x150/auto/#ffffff:#5a5a5a/text:No Preview"/>
                         <? else: ?>
                             <?= $item->thumb_img() ?>
                         <? endif; ?>
                         <?= $theme->thumb_bottom($item) ?>
-                    </a>
-
-                    <div class="item-information">
-                        <h6>
-                            <a class="<?= $item->type ?>" href="<?= $item->url() ?>">
+                        <div class="item-information">
+                            <h6 class="<?= $item->type ?>">
                                 <i></i>
                                 <?= html::purify($item->title) ?>
-                            </a>
-                        </h6>
+                            </h6>
 
-                        <ul class="metadata">
-                            <?= $theme->thumb_info($item) ?>
-                        </ul>
-                    </div>
+                            <ul class="metadata">
+                                <?= $theme->thumb_info($item) ?>
+                            </ul>
+                        </div>
+                    </a>
 
                     <div class="actions">
                         <div class="row">

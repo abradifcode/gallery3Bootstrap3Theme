@@ -22,12 +22,6 @@
         &:hover {
           @include box-shadow(0 0 4px $brand-primary);
 
-          > .item-information {
-            opacity: 1;
-            display: block;
-
-          }
-
           > a {
             opacity: 0.8;
 
@@ -37,6 +31,12 @@
               -moz-filter: grayscale(100%);
               filter: gray;
               filter: grayscale(100%);
+            }
+
+            > .item-information {
+              opacity: 1;
+              display: block;
+
             }
           }
         }
@@ -79,40 +79,45 @@
               filter: gray;
               filter: grayscale(100%);
             }
-          }
-        }
 
-        > .item-information {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          margin-left: -25%;
-          background: transparentize($white, .1);
-          margin: -($line-height-computed) 0 0 0;
-          width: 100%;
-          padding: 10px 0;
-          opacity: 0;
-          text-align: center;
-          -webkit-transition: opacity .2s ease-in-out;
-          -moz-transition: opacity .2s ease-in-out;
-          -ms-transition: opacity .2s ease-in-out;
-          -o-transition: opacity .2s ease-in-out;
-          transition: opacity .2s ease-in-out;
-
-          // Item title
-          > h6 {
-
+            > .item-information {
+              opacity: 1;
+              display: block;
+            }
           }
 
-          // The metadata - hidden up until min-width: screen-md
-          > .metadata {
-            @extend .list-unstyled;
-            display: none;
+          > .item-information {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-left: -25%;
+            background: transparentize($white, .1);
+            margin: -($line-height-computed) 0 0 0;
+            width: 100%;
+            opacity: 0;
+            padding: 10px 0;
+            text-align: center;
+            -webkit-transition: opacity .2s ease-in-out;
+            -moz-transition: opacity .2s ease-in-out;
+            -ms-transition: opacity .2s ease-in-out;
+            -o-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
 
-            > li {
-              font-size: 12px;
-              font-family: "Open Sans";
-              font-weight: 400;
+            // Item title
+            > h6 {
+              color: $brand-primary;
+            }
+
+            // The metadata - hidden up until min-width: screen-md
+            > .metadata {
+              @extend .list-unstyled;
+              display: none;
+
+              > li {
+                font-size: 12px;
+                font-family: "Open Sans";
+                font-weight: 400;
+              }
             }
           }
         }
@@ -180,7 +185,6 @@
         > div {
           > a {
             > .item-information {
-
               // Show the metadata on this screen size and above
               > .metadata {
                 display: block;

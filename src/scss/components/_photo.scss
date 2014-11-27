@@ -3,22 +3,7 @@
    ========================================================================== */
 
 .item {
-
-  // Ensure it's above the navbar
-  .tooltip {
-    .tooltip-inner {
-      background: $white;
-      border: 1px solid $gray;
-      border-radius: $border-radius-base;
-      color: $black;
-
-      img {
-        @extend .img-responsive;
-      }
-    }
-  }
-
-  &.photo {
+&.photo {
     img {
       @extend .img-responsive;
       width: 100%;

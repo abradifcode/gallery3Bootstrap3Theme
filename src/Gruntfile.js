@@ -167,7 +167,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: resourcesPath + 'img',
+                        cwd: resourcesPath + 'images',
                         src: '**/*.{png,jpg,jpeg,gif,webp}',
                         dest: projectRoot + 'images'
                     }

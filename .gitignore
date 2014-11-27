@@ -4,3 +4,9 @@ src/node_modules/*
 !src/node_modules/.gitkeep
 vendor
 !vendor/.gitkeep
+
+# Ignore all images placed
+images/*
+!images/.gitkeep
+src/images/*
+!src/images/.gitkeep

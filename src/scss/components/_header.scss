@@ -8,29 +8,31 @@ header[role="banner"] {
 
   .navbar-header {
     button {
-      >span {
+      > span {
         @extend .sr-only;
       }
 
-      >i {
+      > i {
         @extend .icon;
         @extend .#{$fa-css-prefix}-bars;
       }
     }
   }
 
-  >nav {
+  > nav {
     @extend .navbar;
     @extend .navbar-default;
     margin: 0;
   }
 
   // Logo
-  #gLogo {
-    @extend .navbar-brand;
+  .navbar-header {
+    a {
+      @extend .navbar-brand;
 
-    >img {
-      @extend .img-responsive;
+      > img {
+        @extend .img-responsive;
+      }
     }
   }
 
@@ -45,23 +47,18 @@ header[role="banner"] {
 
   }
 
-  // Search form
-  .search-form {
+  .profile-menu {
     @extend .navbar-right;
 
-    >form {
-      @extend .navbar-form;
+    > ul {
+      @extend .nav;
+      @extend .navbar-nav;
+
+      > li {
+        > p {
+          @extend .navbar-text;
+        }
+      }
     }
-  }
-}
-
-@media (min-width: $screen-sm-min) {
-  header {
-  }
-}
-
-@media (min-width: $screen-md-min) {
-  header {
-
   }
 }

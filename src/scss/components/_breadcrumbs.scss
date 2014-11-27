@@ -1,18 +1,33 @@
 /* ==========================================================================
-   Breadcrumbs
+   Breadcrumbs & search form (page.html.php)
    ========================================================================== */
 
-.breadcrumbs {
-
+.sub-header {
   background: $gray-lighter;
-  padding: 15px 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
-  > nav {
-    > ol {
-      @extend .breadcrumb;
-      margin-bottom: 0;
+  > div {
+    @extend .row;
 
-      // Icons are defined in _icons.scss, as they're reuseable
+    > .breadcrumbs {
+      @extend .col-xs-6;
+      @extend .col-sm-8;
+
+      > nav {
+        > ol {
+          @extend .breadcrumb;
+          margin-bottom: 0;
+
+          // Icons are defined in _icons.scss, as they're reuseable
+        }
+      }
+    }
+
+    // Search form
+    .search-form {
+      @extend .col-xs-6;
+      @extend .col-sm-4;
     }
   }
 }

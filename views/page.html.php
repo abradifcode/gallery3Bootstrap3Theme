@@ -75,11 +75,15 @@
                         <span>Toggle navigation</span>
                         <i></i>
                     </button>
-                    <a id="gLogo" href="<?= url::site("albums/1") ?>"
-                       title="<?= t("go back to the Gallery home")->for_html_attr() ?>">
-                        <img width="107" height="48"
-                             alt="<?= t("Gallery logo: Your photos on your web site")->for_html_attr() ?>"
-                             src="<?= url::file("lib/images/logo.png") ?>"/>
+                    <? if (is_file(realpath(dirname(__FILE__).'/../').'/images/logo.png')): ?>
+                        <? $image_src = $theme->url("images/logo.png") ?>
+                    <? else: ?>
+                        <? $image_src = url::file("lib/images/logo.png") ?>
+                    <? endif; ?>
+                    <a href="<?= url::site("albums/1") ?>"
+                       title="<?= t("Gallery Home")->for_html_attr() ?>">
+                        <img alt="<?= t("Gallery")->for_html_attr() ?>"
+                        src="<?= $image_src ?>" />
                     </a>
                 </div>
 
@@ -87,8 +91,8 @@
                     <?= $theme->site_menu(); ?>
                 </div>
 
-                <div class="search-form">
-                    <?= $theme->header_top() ?>
+                <div class="profile-menu">
+                    <?= $theme->user_menu() ?>
                 </div>
             </div>
         </nav>
@@ -105,33 +109,57 @@
     </header>
 
 
-    <section class="breadcrumbs container-fluid">
-        <nav>
-            <ol>
-                <li>
-                    <a href="<?= url::site("albums/1") ?>"
-                       class="home">
-                        <i></i>
-                    </a>
-                </li>
-
-                <? if ($theme->tag()): ?>
-                    <li>
-                        <a href="<?= $breadcrumbs[1]->url ?>"
-                           class="tag">
-                            <i></i>
-                            <?= html::purify($breadcrumbs[1]->title) ?>
-                        </a>
-                    </li>
-                <? elseif (count($parents) > 0): ?>
-                    <? foreach ($parents as $index => $parent): ?>
+    <section class="sub-header container-fluid">
+        <div>
+            <div class="breadcrumbs">
+                <nav>
+                    <ol>
                         <li>
+                            <a href="<?= url::site("albums/1") ?>"
+                               class="home">
+                                <i></i>
+                            </a>
+                        </li>
+
+                        <? if ($theme->tag()): ?>
+                            <li>
+                                <a href="<?= $breadcrumbs[1]->url ?>"
+                                   class="tag">
+                                    <i></i>
+                                    <?= html::purify($breadcrumbs[1]->title) ?>
+                                </a>
+                            </li>
+                        <? elseif (count($parents) > 0): ?>
+                            <? foreach ($parents as $index => $parent): ?>
+                                <li>
+                                    <?
+                                    if ($parent->is_album())
+                                    {
+                                        $class = 'album';
+                                    }
+                                    elseif ($parent->is_movie())
+                                    {
+                                        $class = 'movie';
+                                    }
+                                    else
+                                    {
+                                        $class = 'photo';
+                                    }
+                                    ?>
+                                    <a href="<?= url::site("albums/{$parent->id}?show={$theme->item()->id}") ?>"
+                                       class="<?= $class ?>">
+                                        <i></i>
+                                        <?= html::purify($parent->title) ?>
+                                    </a>
+                                </li>
+                            <? endforeach ?>
+
                             <?
-                            if ($parent->is_album())
+                            if ($theme->item()->is_album())
                             {
                                 $class = 'album';
                             }
-                            elseif ($parent->is_movie())
+                            elseif ($theme->item()->is_movie())
                             {
                                 $class = 'movie';
                             }
@@ -140,39 +168,23 @@
                                 $class = 'photo';
                             }
                             ?>
-                            <a href="<?= url::site("albums/{$parent->id}?show={$theme->item()->id}") ?>"
-                               class="<?= $class ?>">
-                                <i></i>
-                                <?= html::purify($parent->title) ?>
-                            </a>
-                        </li>
-                    <? endforeach ?>
 
-                    <?
-                    if ($theme->item()->is_album())
-                    {
-                        $class = 'album';
-                    }
-                    elseif ($theme->item()->is_movie())
-                    {
-                        $class = 'movie';
-                    }
-                    else
-                    {
-                        $class = 'photo';
-                    }
-                    ?>
-
-                    <li class="active">
+                            <li class="active">
                         <span class="<?= $class ?>">
                             <i></i>
                             <?= html::purify($theme->item()->title) ?>
                         </span>
-                    </li>
-                <? endif; ?>
+                            </li>
+                        <? endif; ?>
 
-            </ol>
-        </nav>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="search-form">
+                <?= $theme->header_top() ?>
+            </div>
+        </div>
     </section>
 
     <main id="bd">

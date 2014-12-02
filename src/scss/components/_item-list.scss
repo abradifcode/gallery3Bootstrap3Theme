@@ -19,6 +19,15 @@
         border: 1px solid $gray;
         padding: 5px;
 
+        > a {
+          > img {
+            // Set a height on all images - thumbs aren't cropped square;
+            // they're just resized to width
+            min-height: 90px;
+            max-height: 90px;
+          }
+        }
+
         &:hover {
           @include box-shadow(0 0 4px $brand-primary);
 
@@ -161,15 +170,13 @@
         > div {
           > a {
 
-            // Set height for grid vertical alignment
-            > .no-cover {
-              height: 144px;
-
-              > i {
-                font-size: 90px;
-                margin-top: 30px;
-              }
+            // Set a height on all images - thumbs aren't cropped square;
+            // they're just resized to width
+            > img {
+              max-height: 150px;
+              min-height: 150px;
             }
+
           }
         }
       }
@@ -184,6 +191,14 @@
       > .item {
         > div {
           > a {
+
+            // Set a height on all images - thumbs aren't cropped square;
+            // they're just resized to width
+            >img {
+              max-height: 250px;
+              min-height: 250px;
+            }
+
             > .item-information {
               // Optionally show the metadata on this screen size and above
               > .metadata {

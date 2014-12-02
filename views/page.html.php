@@ -93,6 +93,7 @@
                 <div class="profile-menu">
                     <?= $theme->user_menu() ?>
                 </div>
+
             </div>
         </nav>
 

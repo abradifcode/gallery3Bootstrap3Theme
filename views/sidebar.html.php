@@ -13,4 +13,5 @@
 </div>
 
 <?= $theme->sidebar_blocks() ?>
+
 <?= $theme->sidebar_bottom() ?>

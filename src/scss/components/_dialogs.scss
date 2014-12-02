@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Breadcrumbs & search form (page.html.php)
+   ========================================================================== */
+
+#g-dialog {
+  ul {
+    @extend .list-unstyled;
+  }
+
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  button {
+    @extend .btn;
+    @extend .btn-default;
+  }
+}

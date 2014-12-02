@@ -16,7 +16,7 @@
 <? if (count($children)): ?>
     <?
         $items = $children;
-        include '_itemlist.html.php'
+        include '_itemlist.html.php';
     ?>
 <? else: ?>
     <? if ($user->admin || access::can("add", $item)): ?>

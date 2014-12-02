@@ -68,7 +68,7 @@ module.exports = function (grunt) {
         cmq: {
             Gallery3Bootstrap3Theme: {
                 files: {
-                    './.temp/css/': [
+                    './.temp/css/style.css': [
                         './.temp/css/style.css']
 
                 }
@@ -83,6 +83,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '../css/style.min.css': [
+                        '../vendor/jquery-ui/themes/base/jquery-ui.css',
                         './.temp/css/style.css'
                     ]
                 }

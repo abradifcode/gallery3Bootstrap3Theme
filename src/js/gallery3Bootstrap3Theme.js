@@ -29,7 +29,16 @@ $(document).ready(function () {
     // Pagination tooltips to show images on hover
     $('[data-toggle="tooltip"]').tooltip();
 
-    // Intialize empty
+    // Intialize empty album covers with holder js images
     Holder.run({});
+
+    // Initialize dialogs
+    $(".g-dialog-link").gallery_dialog();
+
+    // Initialize short forms
+    $(".g-short-form").gallery_short_form();
+
+    $(this).find(".g-dialog-link").gallery_dialog();
+    $(this).find(".g-ajax-link").gallery_ajax();
 
 });

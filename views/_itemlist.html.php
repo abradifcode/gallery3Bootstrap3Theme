@@ -10,7 +10,7 @@
                     <a href="<?= $item->url() ?>">
                         <?= $theme->thumb_top($item) ?>
                         <? if ($item->album_cover_item_id === null && $item->is_album()): ?>
-                            <img data-src="holder.js/200x150/auto/#ffffff:#5a5a5a/text:No Preview"/>
+                            <img data-src="holder.js/200x150/auto/#ffffff:#5a5a5a/text:<?= html::purify($item->title) ?>" />
                         <? else: ?>
                             <?= $item->thumb_img() ?>
                         <? endif; ?>
@@ -49,4 +49,5 @@
         <? endforeach ?>
     </div>
 </div>
+
 <?= $theme->paginator() ?>

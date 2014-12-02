@@ -18,33 +18,7 @@
 </div>
 
 <? if (count($items)): ?>
-    <div id="gAlbumGrid">
-        <div>
-            <? foreach ($items as $item): ?>
-                <? $item_class = $item->is_album() ? "album" : "photo" ?>
-                <div id="gItemId-<?= $item->id ?>" class="gItem <?= $item_class ?>">
-                    <div>
-                        <a href="<?= $item->url() ?>">
-                            <?= $item->thumb_img() ?>
-                        </a>
-
-                        <h6>
-                            <a href="<?= $item->url() ?>">
-                                <i></i>
-                                <?= html::purify($item->title) ?>
-                            </a>
-                        </h6>
-                        <ul class="gMetadata">
-                            <?= $theme->thumb_info($item) ?>
-                        </ul>
-                    </div>
-                </div>
-            <? endforeach ?>
-        </div>
-    </div>
-
-    <?= $theme->paginator() ?>
-
+    <? include '_itemlist.html.php' ?>
 <? else: ?>
     <p>
         <?= t("No results found for <b>%term</b>", array("term" => $q)) ?>

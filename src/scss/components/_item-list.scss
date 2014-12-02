@@ -185,9 +185,9 @@
         > div {
           > a {
             > .item-information {
-              // Show the metadata on this screen size and above
+              // Optionally show the metadata on this screen size and above
               > .metadata {
-                display: block;
+                display: none;
               }
             }
           }

@@ -2,6 +2,10 @@
    Menus
    ========================================================================== */
 
+*:active {
+  outline: none;
+}
+
 .g-context-menu {
   @extend .list-unstyled;
   margin: 0;

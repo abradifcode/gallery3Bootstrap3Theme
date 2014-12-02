@@ -9,7 +9,8 @@
     @extend .pagination;
 
     > li {
-      > a {
+      > a,
+      > span {
         display: block;
 
         > span:not([aria-hidden]) {

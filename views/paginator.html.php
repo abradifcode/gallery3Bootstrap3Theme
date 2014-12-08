@@ -1,42 +1,47 @@
 <?php defined("SYSPATH") or die("No direct script access.") ?>
 <? // See http://docs.kohanaphp.com/libraries/pagination ?>
 
-<nav class="pager no-item-preview">
+<nav class="pager no-item-preview<?= ($page_type == "collection") ? ' collection' : ''; ?>"
+     data-max-page="<?= $max_pages ?>">
     <ul>
-        <li<?= (!$first_page_url) ? ' class="disabled"' : '' ?>>
-            <?= ($first_page_url) ? '<a href="' . str_replace('{page}', 1, $url) . '">' : '<span>' ?>
+        <? if ($page_type == "collection"): ?>
+            <li class="first<?= (isset($first_page_url)) ? '' : ' disabled' ?>">
+                <?= (isset($first_page_url)) ? '<a href="' . $first_page_url . '">' : '<span>' ?>
                 <span aria-hidden="true">&laquo;</span>
                 <span>
                     <?= t("first") ?>
                 </span>
-            <?= ($first_page_url) ? '</a>' : '</span>' ?>
-        </li>
+                <?= (isset($first_page_url)) ? '</a>' : '</span>' ?>
+            </li>
+        <? endif; ?>
 
-        <li<?= (!$previous_page_url) ? ' class="disabled"' : '' ?>>
-            <?= ($previous_page_url) ? '<a href="' . str_replace('{page}', $previous_page, $url) . '">' : '<span>' ?>
-                <span aria-hidden="true">&lsaquo;</span>
+        <li class="previous<?= (isset($previous_page_url)) ? '' : ' disabled' ?>">
+            <?= (isset($previous_page_url)) ? '<a href="' . $previous_page_url . '">' : '<span>' ?>
+            <span aria-hidden="true">&lsaquo;</span>
                 <span>
                     <?= t("previous") ?>
                 </span>
-            <?= ($first_page_url) ? '</a>' : '</span>' ?>
+            <?= (isset($previous_page_url)) ? '</a>' : '</span>' ?>
         </li>
 
-        <li<?= (!$next_page_url) ? ' class="disabled"' : ''; ?>>
-            <?= ($next_page_url) ? '<a href="' . str_replace('{page}', $next_page, $url) . '">' : '<span>' ?>
+        <li class="next<?= (isset($next_page_url)) ? '' : ' disabled'; ?>">
+            <?= (isset($next_page_url)) ? '<a href="' . $next_page_url . '">' : '<span>' ?>
             <span aria-hidden="true">&rsaquo;</span>
             <span>
                 <?= t("next") ?>
             </span>
-            <?= ($first_page_url) ? '</a>' : '</span>' ?>
+            <?= (isset($next_page_url)) ? '</a>' : '</span>' ?>
         </li>
 
-        <li<?= (!$last_page_url) ? ' class="disabled"' : '' ?>>
-            <?= ($last_page_url) ? '<a href="' . str_replace('{page}', $last_page, $url) . '">' : '<span>' ?>
+        <? if ($page_type == "collection"): ?>
+            <li class="last<?= (isset($last_page_url)) ? '' : ' disabled' ?>">
+                <?= (isset($last_page_url)) ? '<a href="' . $last_page_url . '">' : '<span>' ?>
                 <span aria-hidden="true">&raquo;</span>
                 <span>
                     <?= t("last") ?>
                 </span>
-            <?= ($first_page_url) ? '</a>' : '</span>' ?>
-        </li>
+                <?= (isset($last_page_url)) ? '</a>' : '</span>' ?>
+            </li>
+        <? endif; ?>
     </ul>
 </nav>

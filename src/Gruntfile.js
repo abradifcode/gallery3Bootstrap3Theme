@@ -128,7 +128,7 @@ module.exports = function (grunt) {
                     './.temp/js/vendors.min.js': [
                         projectRoot + 'vendor/jquery/jquery.js',
                         projectRoot + 'vendor/jquery-ui/ui/jquery-ui.js',
-                        //projectRoot+'vendor/jquery-infiinte-scroll/jquery.infinitescroll.js',
+                        projectRoot+'vendor/jquery-infinite-scroll/jquery.infinitescroll.js',
                         projectRoot + 'vendor/holderjs/holder.js',
                         projectRoot + 'vendor/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js',
                         projectRoot + 'vendor/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js',
